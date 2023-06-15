@@ -8,7 +8,6 @@ import { PostsTableProps } from './PostsTable.types';
 
 export const PostsTable = ({ userId }: PostsTableProps) => {
 	const { data, isError, isLoading } = useGetUserPosts(userId);
-	console.log(data);
 	if (isLoading) return <Spinner />;
 	if (isError) return <ErrorSign />;
 	return (
