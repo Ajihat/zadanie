@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
+
+import { PostsTable } from '../../components/PostsTable/PostsTable';
 
 import { useUserContext } from '../../context/UserContext/useUserContext';
 
@@ -17,5 +18,5 @@ export const Posts = () => {
 		return () => setSelectedUserId(null);
 	}, [setSelectedUserId, id]);
 
-	return <Box></Box>;
+	return <PostsTable userId={id} />;
 };
