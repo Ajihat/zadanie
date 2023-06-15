@@ -1,4 +1,4 @@
 export const appRoutes = {
 	home: '/',
-	userPosts: '/user:id',
+	userPosts: '/:userSlug',
 };
