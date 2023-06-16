@@ -2,7 +2,6 @@ import { useLocation, Link } from 'react-router-dom';
 import { Box, Breadcrumbs as MuiCrumbs } from '@mui/material';
 
 import { useGenerateCrumbs } from './useGenerateCrumbs';
-
 import * as styles from './Breadcrumbs.styles';
 
 export const Breadcrumbs = () => {
