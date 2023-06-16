@@ -1,14 +1,11 @@
 import { Typography } from '@mui/material';
 
 import { SubheaderProps } from './Subheader.types';
+import * as styles from './Subheader.styles';
 
 export const Subheader = ({ text }: SubheaderProps) => {
 	return (
-		<Typography
-			variant='h6'
-			component='h2'
-			sx={{ padding: '10px', backgroundColor: 'rgb(220,220,220)', fontSize: 'px' }}
-		>
+		<Typography sx={styles.typo} variant='h6' component='h2'>
 			{text}
 		</Typography>
 	);
