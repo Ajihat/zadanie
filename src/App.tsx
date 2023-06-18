@@ -1,27 +1,26 @@
+import { CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 
 import { Home, Posts, Information, PostDetails } from './pages';
 
-import { Header, Breadcrumbs } from './components';
-
-import { appRoutes } from './appRoutes/appRoutes';
-
-import './App.css';
+import { Layout } from 'src/components';
+import { appRoutes } from 'src/appRoutes';
 
 function App() {
-	return (
-		<>
-			<Header />
-			<Breadcrumbs />
-			<Routes>
-				<Route path={appRoutes.home} element={<Home />}>
-					<Route index element={<Information />} />
-					<Route path={appRoutes.userPosts} element={<Posts />} />
-					<Route path={appRoutes.postDetails} element={<PostDetails />} />
-				</Route>
-			</Routes>
-		</>
-	);
+  return (
+    <>
+      <CssBaseline />
+      <Layout>
+        <Routes>
+          <Route path={appRoutes.home} element={<Home />}>
+            <Route index element={<Information />} />
+            <Route path={appRoutes.userPosts} element={<Posts />} />
+            <Route path={appRoutes.postDetails} element={<PostDetails />} />
+          </Route>
+        </Routes>
+      </Layout>
+    </>
+  );
 }
 
 export default App;

@@ -6,3 +6,4 @@ export { Spinner } from './Spinner/Spinner';
 export { ErrorSign } from './ErrorSign/ErrorSign';
 export { PostsTable } from './PostsTable/PostsTable';
 export { Details } from './Details/Details';
+export { Layout } from './Layout/Layout';

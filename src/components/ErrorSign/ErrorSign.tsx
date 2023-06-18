@@ -8,7 +8,7 @@ export const ErrorSign = () => {
     <Paper sx={styles.paper}>
       <Error sx={styles.icon} fontSize="large" />
       <Typography sx={styles.typo}>
-        We are sorry, something went wrong. Try again later
+        We are sorry, something went wrong. Try again later.
       </Typography>
     </Paper>
   );

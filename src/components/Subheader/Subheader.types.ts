@@ -1,3 +1,3 @@
 export interface SubheaderProps {
-	text: string;
+  text: string;
 }

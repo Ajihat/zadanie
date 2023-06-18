@@ -5,12 +5,7 @@ export const paper: SxProps = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%,-50%)',
-  padding: '20px',
-  maxWidth: '250px',
+  marginTop: '200px',
 };
 
 export const icon: SxProps = {

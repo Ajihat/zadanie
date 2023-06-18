@@ -1,52 +1,60 @@
-import { TableContainer, Box, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { Spinner, ErrorSign } from '../index';
+import {
+  TableContainer,
+  Box,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from '@mui/material';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Spinner, ErrorSign } from 'src/components';
 
 import { useGetUsers } from './useGetUsers';
-import { useUserContext } from '../../context/UserContext/useUserContext';
 import { generateUserTableRows } from './UsersTable.helpers';
 import * as styles from './UserTable.styles';
 
 export const UsersTable = () => {
-	const { selectedUserId, setSelectedUserId } = useUserContext();
-	const navigate = useNavigate();
-	const { data, isLoading, isError } = useGetUsers();
+  const { userSlug } = useParams();
+  const userId = userSlug ? Number(userSlug.split('user')[1]) : null;
+  const navigate = useNavigate();
+  const { data, isLoading, isError } = useGetUsers();
 
-	const handleClick = (id: number) => {
-		navigate(`/user${id}`);
-		setSelectedUserId(id);
-	};
+  const handleClick = (id: number) => {
+    navigate(`/user${id}`);
+  };
 
-	if (isLoading) return <Spinner />;
-	if (isError) return <ErrorSign />;
+  if (isLoading) return <Spinner />;
+  if (isError) return <ErrorSign />;
 
-	return (
-		<TableContainer component={Box}>
-			<Table>
-				<TableHead>
-					<TableRow>
-						<TableCell>ID</TableCell>
-						<TableCell align='right'>Name</TableCell>
-						<TableCell align='right'>Email</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{generateUserTableRows(data).map((row) => (
-						<TableRow
-							onClick={() => handleClick(row.id)}
-							key={row.name}
-							sx={{
-								...styles.row,
-								backgroundColor: selectedUserId === row.id ? 'rgb(240,240,240)' : 'white',
-							}}
-						>
-							<TableCell>{row.id}</TableCell>
-							<TableCell align='right'>{row.name}</TableCell>
-							<TableCell align='right'>{row.email}</TableCell>
-						</TableRow>
-					))}
-				</TableBody>
-			</Table>
-		</TableContainer>
-	);
+  return (
+    <TableContainer component={Box}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Email</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {generateUserTableRows(data).map(row => (
+            <TableRow
+              onClick={() => handleClick(row.id)}
+              key={row.name}
+              sx={{
+                ...styles.row,
+                backgroundColor:
+                  userId === row.id ? 'rgb(224,224,224)' : 'white',
+              }}
+            >
+              <TableCell>{row.id}</TableCell>
+              <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.email}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 };
