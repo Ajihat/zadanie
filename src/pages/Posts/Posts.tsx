@@ -12,7 +12,7 @@ export const Posts = () => {
 
   return (
     <>
-      <Subheader text={`user${userId} post(s)`} />
+      <Subheader text={`user${userId} posts:`} />
       <PostsTable userId={userId} />
     </>
   );
