@@ -5,7 +5,7 @@ export const generateCrumbs = (location: string) => {
     const to = `/${pathParts.slice(0, index + 1).join('/')}`;
 
     return {
-      id: crumb,
+      id: index,
       text: crumb,
       to,
     };

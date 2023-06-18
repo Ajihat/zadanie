@@ -27,10 +27,7 @@ export const Details = ({ postId }: DetailsProps) => {
         </Typography>
         <Typography>{post.body}</Typography>
       </Box>
-      <Button
-        onClick={() => navigate(`/user${post.userId}`)}
-        variant="outlined"
-      >
+      <Button onClick={() => navigate(`/${post.userId}`)} variant="outlined">
         Go back to posts
       </Button>
     </Box>

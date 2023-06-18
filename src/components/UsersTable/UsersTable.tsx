@@ -15,14 +15,9 @@ import { generateUserTableRows } from './UsersTable.helpers';
 import * as styles from './UserTable.styles';
 
 export const UsersTable = () => {
-  const { userSlug } = useParams();
-  const userId = userSlug ? Number(userSlug.split('user')[1]) : null;
+  const { userId } = useParams();
   const navigate = useNavigate();
   const { data, isLoading, isError } = useGetUsers();
-
-  const handleClick = (id: number) => {
-    navigate(`/user${id}`);
-  };
 
   if (isLoading) return <Spinner />;
   if (isError) return <ErrorSign />;
@@ -40,12 +35,12 @@ export const UsersTable = () => {
         <TableBody>
           {generateUserTableRows(data).map(row => (
             <TableRow
-              onClick={() => handleClick(row.id)}
+              onClick={() => navigate(`/${row.id}`)}
               key={row.name}
               sx={{
                 ...styles.row,
                 backgroundColor:
-                  userId === row.id ? 'rgb(224,224,224)' : 'white',
+                  Number(userId) === row.id ? 'rgb(224,224,224)' : 'white',
               }}
             >
               <TableCell>{row.id}</TableCell>

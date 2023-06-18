@@ -1,7 +1,7 @@
 import { CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 
-import { Home, Posts, Information, PostDetails } from './pages';
+import { Home, Posts, Information, PostDetails, NotFound } from './pages';
 
 import { Layout } from 'src/components';
 import { appRoutes } from 'src/appRoutes';
@@ -17,6 +17,7 @@ function App() {
             <Route path={appRoutes.userPosts} element={<Posts />} />
             <Route path={appRoutes.postDetails} element={<PostDetails />} />
           </Route>
+          <Route path={appRoutes.notFound} element={<NotFound />} />
         </Routes>
       </Layout>
     </>

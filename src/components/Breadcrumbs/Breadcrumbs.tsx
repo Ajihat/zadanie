@@ -7,7 +7,7 @@ import * as styles from './Breadcrumbs.styles';
 export const Breadcrumbs = () => {
   const location = useLocation();
   const crumbs = generateCrumbs(location.pathname);
-
+  console.log(crumbs);
   return (
     <Box sx={styles.holder}>
       <MuiCrumbs separator="›" aria-label="breadcrumb">

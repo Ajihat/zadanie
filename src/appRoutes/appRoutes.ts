@@ -1,5 +1,6 @@
 export const appRoutes = {
   home: '/',
-  userPosts: '/:userSlug',
-  postDetails: '/:userSlug/:postSlug',
+  userPosts: '/:userId',
+  postDetails: '/:userId/:postId',
+  notFound: '*',
 };

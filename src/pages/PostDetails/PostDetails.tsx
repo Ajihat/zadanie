@@ -3,17 +3,16 @@ import { useParams } from 'react-router-dom';
 import { Subheader, Details } from 'src/components/index';
 
 export const PostDetails = () => {
-  const { postSlug } = useParams();
-  if (!postSlug) {
+  const { postId } = useParams();
+  if (!postId) {
     throw new Error(
-      'PostDetails page should be rendered inside route with `postSlug` param',
+      'PostDetails page should be rendered inside route with `postId` param',
     );
   }
-  const id = postSlug.split('post')[1];
   return (
     <>
-      <Subheader text={`post${id} details:`} />
-      <Details postId={id} />
+      <Subheader text={`post${postId} details:`} />
+      <Details postId={postId} />
     </>
   );
 };

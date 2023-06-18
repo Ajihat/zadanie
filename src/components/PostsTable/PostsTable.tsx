@@ -32,7 +32,7 @@ export const PostsTable = ({ userId }: PostsTableProps) => {
         <TableBody>
           {generatePostsTableRows(data).map(row => (
             <TableRow
-              onClick={() => navigate(`/user${userId}/post${row.id}`)}
+              onClick={() => navigate(`/${userId}/${row.id}`)}
               sx={styles.row}
               key={row.id}
             >
