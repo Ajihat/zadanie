@@ -6,8 +6,8 @@ describe('Breadcrumbs', () => {
   test('should render Breadcrumbs component with correct crumbs', () => {
     const crumbs = [
       { id: 'home', text: 'home', to: '/' },
-      { id: '1', text: '1', to: '/1' },
-      { id: '2', text: '2', to: '/1/2' },
+      { id: 0, text: '1', to: '/1' },
+      { id: 1, text: '2', to: '/1/2' },
     ];
 
     const { getByText } = render(
